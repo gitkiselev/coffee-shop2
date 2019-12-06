@@ -4,13 +4,10 @@ import HeaderMenu from '../HeaderMenu';
 import girl from './coffee_girl.jpg';
 import shopService from '../../service/shopService';
 import Beans_logo_dark from '../logo/Beans_logo_dark.svg';
-import './CoffeePage.css';
-import {withRouter} from 'react-router-dom';
-const uuidv4 = require('uuid/v4');
+import './GoodsPage.css';
 
-class CoffeePage extends React.Component {
+export default class CoffeePage extends React.Component {
     coffeeService = new shopService();
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -42,24 +39,18 @@ class CoffeePage extends React.Component {
           loading: false
         });
       };
-      onItemSelected = (name) => {
-        
-        this.setState({
-            selectedItem: name,
-            error: false
-        })
-    }
+
       renderItems = (arr) => {
         
         return arr.map((item) => {
-            
             const {name, url, price, country} = item;
            
             return (
                  <div
-                 
-                 onItemSelected={(name) => this.props.history.push(name)}
-                 key={uuidv4()} className="shop__item">
+                 onClick={(url) => {
+                    this.props.history.push(url)
+                }}
+                 key={url} className="shop__item">
                     <img src={url} alt="coffee" />
                     <div className="shop__item-title">
                         {name}
@@ -142,5 +133,3 @@ class CoffeePage extends React.Component {
         )
     }
 }
-
-export default withRouter(CoffeePage);

@@ -8,9 +8,9 @@ import About from '../About';
 import Footer from '../Footer';
 import HeaderMenu from '../HeaderMenu';
 import shopService from '../../service/shopService';
+import {withRouter} from 'react-router-dom';
 
-
-export default class MainPage extends React.Component {
+class MainPage extends React.Component {
     coffeeService = new shopService();
     constructor(props) {
         super(props);
@@ -110,3 +110,5 @@ export default class MainPage extends React.Component {
         
     }
 }
+
+export default withRouter(MainPage);

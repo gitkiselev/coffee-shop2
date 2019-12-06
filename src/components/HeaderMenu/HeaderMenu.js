@@ -11,7 +11,6 @@ export default class HeaderMenu extends React.Component {
     render() {
         return (
             <ul className="header">
-                
                     
                     <li className="header__item">
                         <Link to="/">
@@ -22,7 +21,10 @@ export default class HeaderMenu extends React.Component {
                         <Link to="/OurCoffee">Our coffee</Link>
                     </li>
                     <li className="header__item">
-                        <Link to="/ItemPage">For your pleasure</Link>
+                        <Link to="/GoodsPage">For your pleasure</Link>
+                    </li>
+                    <li className="header__item">
+                        <Link to="/ItemPage">Временно ItemPage</Link>
                     </li>
                     
                 
