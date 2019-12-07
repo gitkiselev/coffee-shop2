@@ -9,7 +9,8 @@ import Footer from '../Footer';
 import HeaderMenu from '../HeaderMenu';
 import shopService from '../../service/shopService';
 import {withRouter} from 'react-router-dom';
-
+const uuidv4 = require('uuid/v4');
+ 
 class MainPage extends React.Component {
     coffeeService = new shopService();
     constructor(props) {
@@ -27,6 +28,11 @@ class MainPage extends React.Component {
         })
     }
     
+    onClickItem = (id) => {
+        console.log('id: ' + id)
+        this.props.history.push('/ItemPage/' + id);
+
+    }
 
     componentDidMount() {
         this.coffeeService.getAllBestItems()
@@ -49,8 +55,11 @@ class MainPage extends React.Component {
         
         return arr.map((item) => {
             const {name, url, price} = item;
+            const id = uuidv4();
             return (
-                <div key={url} onClick={() => this.props.onItemSelected(url)} className="best__item">
+                <div id={id} key={url} 
+                onClick = {() => this.onClickItem(id) }
+                 className="best__item">
                     <img src={url} alt="coffee"/>
                     <div className="best__item-title">
                         {name}

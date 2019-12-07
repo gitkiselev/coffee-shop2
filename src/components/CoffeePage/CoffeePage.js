@@ -42,23 +42,27 @@ class CoffeePage extends React.Component {
           loading: false
         });
       };
-      onItemSelected = (name) => {
-        
-        this.setState({
-            selectedItem: name,
-            error: false
-        })
+
+
+    onClickItem = (id) => {
+        console.log('id: ' + id)
+        this.props.history.push('/ItemPage/'+ id);
     }
+
+
+
+    
       renderItems = (arr) => {
         
         return arr.map((item) => {
             
-            const {name, url, price, country} = item;
-           
+        const {name, url, price, country} = item;
+           const id = uuidv4();
             return (
                  <div
                  
-                 onItemSelected={(name) => this.props.history.push(name)}
+                 onClick = {() => this.onClickItem(id)}
+                 
                  key={uuidv4()} className="shop__item">
                     <img src={url} alt="coffee" />
                     <div className="shop__item-title">

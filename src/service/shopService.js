@@ -1,8 +1,9 @@
-import nextId from "react-id-generator";
+//import nextId from "react-id-generator";
+//const uuidv4 = require('uuid/v4');
 export default class CoffeeService {
     constructor() {
         this._apiBase = 'http://localhost:3000';
-        this.htmlId = nextId();
+        
     }
     getResource = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
@@ -24,7 +25,9 @@ export default class CoffeeService {
 
 
     getItem = async (id) => {
+        console.log('id: ' + id)
         const item = await this.getResource(`/coffee/${id}`);
+        console.log('item: ' + item);
         return this._transformItem(item);
     }
     idGen = () => {

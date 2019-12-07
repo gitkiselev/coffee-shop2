@@ -47,11 +47,10 @@ export default class CoffeePage extends React.Component {
            
             return (
                  <div
-                 onClick={(url) => {
-                    this.props.history.push(url)
-                }}
                  key={url} className="shop__item">
-                    <img src={url} alt="coffee" />
+                    <img 
+                    
+                    src={url} alt="coffee" />
                     <div className="shop__item-title">
                         {name}
                     </div>

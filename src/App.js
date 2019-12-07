@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import GoodsPage from '../src/components/GoodsPage';
 import MainPage from '../src/components/MainPage';
 import CoffeePage from '../src/components/CoffeePage';
@@ -16,25 +16,22 @@ export default class App extends Component {
     render() {
         return (
 
-            <Router>
-
-
                 <div>
                     <Switch>
                         <Route exact path='/' component={MainPage}/>
                         <Route exact path='/OurCoffee' component={CoffeePage}/>
                         <Route exact path='/GoodsPage' component={GoodsPage}/>
                         <Route exact path='/ItemPage' component={ItemPage}/>
-                        <Route path='/GoodsPage/:name' exact render={
+                        <Route path='/ItemPage/:id' render={
                                 ({match}) => {
-                                    const {url} = match.params;
-                                    return <ItemPage name={url}/>
+                                    const {id} = match.params;
+                                    return <ItemPage id={id}/>
                                 }
                             } /> 
                     </Switch>
                 </div>
 
-            </Router>
+            
 
         )
     }
