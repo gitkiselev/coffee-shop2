@@ -6,11 +6,10 @@ import shopService from '../../service/shopService';
 import Beans_logo_dark from '../logo/Beans_logo_dark.svg';
 import './CoffeePage.css';
 import {withRouter} from 'react-router-dom';
-const uuidv4 = require('uuid/v4');
+
 
 class CoffeePage extends React.Component {
     coffeeService = new shopService();
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +24,6 @@ class CoffeePage extends React.Component {
         })
     }
     
-
     componentDidMount() {
         this.coffeeService.getAllItems()
         .then((itemList) => {
@@ -49,21 +47,15 @@ class CoffeePage extends React.Component {
         this.props.history.push('/ItemPage/'+ id);
     }
 
-
-
-    
       renderItems = (arr) => {
-        
-        return arr.map((item) => {
-            
-        const {name, url, price, country} = item;
-           const id = uuidv4();
+        return arr.map((item) => {   
+        const {name, url, price, country, id} = item; 
             return (
                  <div
                  
                  onClick = {() => this.onClickItem(id)}
                  
-                 key={uuidv4()} className="shop__item">
+                 key={id} className="shop__item">
                     <img src={url} alt="coffee" />
                     <div className="shop__item-title">
                         {name}

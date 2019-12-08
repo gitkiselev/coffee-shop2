@@ -5,24 +5,31 @@ import './ItemPage.css';
 
 import Beans_logo_dark from '../logo/Beans_logo_dark.svg';
 import shopService from '../../service/shopService';
-const uuidv4 = require('uuid/v4');
+
 
 export default class ItemPage extends React.Component {
     state = {
-        item: [],
+        item: {},
         error: false,
         loading: false,
       }
     coffeeService = new shopService();
     componentDidMount() {
+        const res = this.coffeeService.getItem()
+        
+        .catch(error => console.log(error))
+        this.setState({
+            item: res,
+            loading: false
+        })
         
     }
     
     render() {
-        const {name, url, country, price, description} = this.props;
+        const {name, url, country, price, description, id} = this.state.item;
         return (
             <>
-            <div key={uuidv4()} className="banner">
+            <div key={id} className="banner">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -62,8 +69,6 @@ export default class ItemPage extends React.Component {
                     </div>
                 </div>
             </div>
-
-
 
         </div>
     </section>

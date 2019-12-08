@@ -1,5 +1,3 @@
-//import nextId from "react-id-generator";
-//const uuidv4 = require('uuid/v4');
 export default class CoffeeService {
     constructor() {
         this._apiBase = 'http://localhost:3000';
@@ -17,30 +15,27 @@ export default class CoffeeService {
         return res.map(this._transformItem);
     }
 
+    getAllGoods = async() => {
+        const res = await this.getResource('/goods/');
+        return res.map(this._transformItem);
+    }
+
     getAllBestItems = async() => {
         console.log('get all best items')
         const res = await this.getResource('/bestsellers/');
         return res.map(this._transformBestItems);
     }
 
-
     getItem = async (id) => {
+        
         console.log('id: ' + id)
-        const item = await this.getResource(`/coffee/${id}`);
-        console.log('item: ' + item);
-        return this._transformItem(item);
+        const response = await this.getResource(`/coffee/`);
+        console.log(response)
+        const index = response.filter(item => item.id === id);
+        console.log(index)
+        return response[index];
+        //return this._transformItem(response);
     }
-    idGen = () => {
-        const res = this.htmlId;
-        return res;
-    }
-
-
-    
-
-
-    
-
     
     _transformItem = (item) => {
         return {
@@ -48,7 +43,8 @@ export default class CoffeeService {
             country: item.country,
             url: item.url,
             price: item.price,
-            description: item.description
+            description: item.description,
+            id: item.id
         }
     }
 
@@ -57,6 +53,7 @@ export default class CoffeeService {
             name: item.name,
             url: item.url,
             price: item.price,
+            id: item.id
         }
     }
 

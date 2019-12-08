@@ -2,16 +2,19 @@
     "bestsellers": [
         {
             "name": "Solimo Coffee Beans 2 kg",
+            "id": 1,
             "url": "https://images-na.ssl-images-amazon.com/images/I/815O9ktyfUL._SL1500_.jpg",
             "price": "10.73$"
         },
         {
             "name": "Presto Coffee Beans 1 kg",
+            "id": 2,
             "url": "https://images-na.ssl-images-amazon.com/images/I/91Ryk2gKejL._SL1500_.jpg",
             "price": "15.99$"
         },
         {
             "name": "AROMISTICO Coffee 1 kg",
+            "id": 3,
             "url": "https://images-na.ssl-images-amazon.com/images/I/71qBQnpQFYL._SL1500_.jpg",
             "price": "6.99$"
         }
@@ -19,7 +22,7 @@
     "coffee": [
         {
             "name": "Death Wish Bean",
-            
+            "id": 4,
             "country": "Brazil",
             "url": "https://images-na.ssl-images-amazon.com/images/I/91DlZZBjxzL._SX522_.jpg",
             "price": "12.99$",
@@ -27,7 +30,7 @@
         },
         {
             "name": "AROMISTICO Coffee 1 kg",
-            
+            "id": 3,
             "country": "Brazil",
             "url": "https://images-na.ssl-images-amazon.com/images/I/71qBQnpQFYL._SL1500_.jpg",
             "price": "6.99$",
@@ -35,7 +38,7 @@
         },
         {
             "name": "Solimo Coffee Beans 2 kg",
-            
+            "id": 1,
             "country": "Kenya",
             "url": "https://images-na.ssl-images-amazon.com/images/I/815O9ktyfUL._SL1500_.jpg",
             "price": "10.73$",
@@ -43,7 +46,7 @@
         },
         {
             "name": "Black Rifle Coffee",
-            
+            "id": 5,
             "country": "Kenya",
             "url": "https://images-na.ssl-images-amazon.com/images/I/91vwF6Kh8IL._SX522_.jpg",
             "price": "19.75$",
@@ -51,7 +54,7 @@
         },
         {
             "name": "Presto Coffee Beans 1 kg",
-            
+            "id": 2,
             "country": "Columbia",
             "url": "https://images-na.ssl-images-amazon.com/images/I/91Ryk2gKejL._SL1500_.jpg",
             "price": "15.99$",
@@ -59,7 +62,7 @@
         },
         {
             "name": "Organic Coffee One Cup",
-            
+            "id": 6,
             "country": "Columbia",
             "url": "https://images-na.ssl-images-amazon.com/images/I/51M2fmEXTIL.jpg",
             "price": "24.99$",
@@ -69,21 +72,25 @@
     "goods": [
         {
             "name": "Electric Spice and Coffee Grinder",
+            "id": 7,
             "url": "https://images-na.ssl-images-amazon.com/images/I/41qvqWRCm3L.jpg",
             "price": "36.99$"
         },
         {
             "name": "Manual Coffee Grinder",
+            "id": 8,
             "url": "https://images-na.ssl-images-amazon.com/images/I/91gR5HFtmaL._SL1500_.jpg",
             "price": "25.99$"
         },
         {
             "name": "Coffee Cup with Lid",
+            "id": 9,
             "url": "https://images-na.ssl-images-amazon.com/images/I/71L5Ut1HHSL._SL1500_.jpg",
             "price": "15.99$"
         },
         {
             "name": "Pour Over Coffee Maker",
+            "id": 10,
             "url": "https://images-na.ssl-images-amazon.com/images/I/916TPwGqfML._SL1500_.jpg",
             "price": "45.99$"
         }

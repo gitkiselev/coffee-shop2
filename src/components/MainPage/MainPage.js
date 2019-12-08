@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainPage.css';
-
 import Beans_logo from '../logo/Beans_logo.svg';
-
 import About from '../About';
 import Footer from '../Footer';
 import HeaderMenu from '../HeaderMenu';
 import shopService from '../../service/shopService';
-import {withRouter} from 'react-router-dom';
-const uuidv4 = require('uuid/v4');
- 
+import {withRouter, Link} from 'react-router-dom';
+
 class MainPage extends React.Component {
     coffeeService = new shopService();
     constructor(props) {
@@ -28,9 +25,9 @@ class MainPage extends React.Component {
         })
     }
     
-    onClickItem = (id) => {
-        console.log('id: ' + id)
-        this.props.history.push('/ItemPage/' + id);
+    onClickItem = (name) => {
+        console.log('name: ' + name)
+        this.props.history.push('/ItemPage/' + name);
 
     }
 
@@ -54,11 +51,11 @@ class MainPage extends React.Component {
     renderItems = (arr) => {
         
         return arr.map((item) => {
-            const {name, url, price} = item;
-            const id = uuidv4();
+            const {name, url, price, id} = item;
+            
             return (
-                <div id={id} key={url} 
-                onClick = {() => this.onClickItem(id) }
+                <Link to={`/ItemPage/${id}`}><div id={id} key={id} 
+                onClick = {() => this.onClickItem(id)}
                  className="best__item">
                     <img src={url} alt="coffee"/>
                     <div className="best__item-title">
@@ -66,11 +63,10 @@ class MainPage extends React.Component {
                     </div>
                     <div className="best__item-price">{price}$</div>
                 </div>
+                </Link>
             )
         })
     }
-
-
 
 
     render () {
