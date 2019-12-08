@@ -6,7 +6,7 @@ import About from '../About';
 import Footer from '../Footer';
 import HeaderMenu from '../HeaderMenu';
 import shopService from '../../service/shopService';
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class MainPage extends React.Component {
     coffeeService = new shopService();
@@ -54,7 +54,7 @@ class MainPage extends React.Component {
             const {name, url, price, id} = item;
             
             return (
-                <Link to={`/ItemPage/${id}`}><div id={id} key={id} 
+                <div id={id} key={id} 
                 onClick = {() => this.onClickItem(id)}
                  className="best__item">
                     <img src={url} alt="coffee"/>
@@ -63,7 +63,7 @@ class MainPage extends React.Component {
                     </div>
                     <div className="best__item-price">{price}$</div>
                 </div>
-                </Link>
+                
             )
         })
     }
