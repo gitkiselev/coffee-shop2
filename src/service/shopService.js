@@ -26,15 +26,9 @@ export default class CoffeeService {
         return res.map(this._transformBestItems);
     }
 
-    getItem = async (id) => {
-        
-        console.log('id: ' + id)
-        const response = await this.getResource(`/coffee/`);
-        console.log(response)
-        const index = response.filter(item => item.id === id);
-        console.log(index)
-        return response[index];
-        //return this._transformItem(response);
+    getItem = async (name) => {
+        const res = await this.getResource('/coffee/') 
+        return res.map(this._transformItem(name));
     }
     
     _transformItem = (item) => {
@@ -56,8 +50,4 @@ export default class CoffeeService {
             id: item.id
         }
     }
-
-    
-
-    
 }

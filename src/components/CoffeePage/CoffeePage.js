@@ -27,7 +27,9 @@ class CoffeePage extends React.Component {
     componentDidMount() {
         this.coffeeService.getAllItems()
         .then((itemList) => {
+            
             this.setState({
+                //itemList: itemList.filter(item => item.id === 5),
                 itemList,
                 loading: false
             })
@@ -42,9 +44,9 @@ class CoffeePage extends React.Component {
       };
 
 
-    onClickItem = (id) => {
-        console.log('id: ' + id)
-        this.props.history.push('/ItemPage/'+ id);
+    onClickItem = (name) => {
+        console.log('name: ' + name)
+        this.props.history.push(`/ItemPage/${name}`);
     }
 
       renderItems = (arr) => {
@@ -53,7 +55,7 @@ class CoffeePage extends React.Component {
             return (
                  <div
                  
-                 onClick = {() => this.onClickItem(id)}
+                 onClick = {() => this.onClickItem(name)}
                  
                  key={id} className="shop__item">
                     <img src={url} alt="coffee" />

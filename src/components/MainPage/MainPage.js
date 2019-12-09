@@ -40,7 +40,7 @@ class MainPage extends React.Component {
             })
         })
     }
-
+    
     onError = () => {
         this.setState({
           error: true,
@@ -55,7 +55,7 @@ class MainPage extends React.Component {
             
             return (
                 <div id={id} key={id} 
-                onClick = {() => this.onClickItem(id)}
+                onClick = {() => this.onClickItem(name)}
                  className="best__item">
                     <img src={url} alt="coffee"/>
                     <div className="best__item-title">

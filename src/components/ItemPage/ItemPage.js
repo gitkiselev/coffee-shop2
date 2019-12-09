@@ -14,22 +14,24 @@ export default class ItemPage extends React.Component {
         loading: false,
       }
     coffeeService = new shopService();
+   
+    
     componentDidMount() {
-        const res = this.coffeeService.getItem()
-        
-        .catch(error => console.log(error))
-        this.setState({
-            item: res,
-            loading: false
+        const {name} = this.props;
+        this.coffeeService.getAllItems()
+        .then((itemList) => {
+            this.setState({
+                item: itemList.find(item => item.name === name),
+                loading: false
+            })
         })
-        
     }
     
     render() {
         const {name, url, country, price, description, id} = this.state.item;
         return (
             <>
-            <div key={id} className="banner">
+            <div id={id} key={id} className="banner">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -65,7 +67,7 @@ export default class ItemPage extends React.Component {
                     </div>
                     <div className="shop__point">
                         <span>Price:</span>
-                        <span className="shop__point-price">{price}$</span>
+                        <span className="shop__point-price">{price}</span>
                     </div>
                 </div>
             </div>

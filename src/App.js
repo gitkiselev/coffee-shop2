@@ -21,11 +21,11 @@ export default class App extends Component {
                         <Route exact path='/' component={MainPage}/>
                         <Route exact path='/OurCoffee' component={CoffeePage}/>
                         <Route exact path='/GoodsPage' component={GoodsPage}/>
-                        <Route exact path='/ItemPage' component={ItemPage}/>
-                        <Route path='/ItemPage/:id' render={
+                        {/* <Route exact path='/ItemPage' component={ItemPage}/> */}
+                        <Route path='/ItemPage/:name' render={
                                 ({match}) => {
-                                    const {id} = match.params;
-                                    return <ItemPage id={id}/>
+                                    const {name} = match.params;
+                                    return <ItemPage name={name}/>
                                 }
                             } /> 
                     </Switch>
